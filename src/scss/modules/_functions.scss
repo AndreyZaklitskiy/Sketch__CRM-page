@@ -1,0 +1,28 @@
+@use 'sass:math';
+
+/*=====[ X to px ]=====*/
+@function percent($px, $from: 100) {
+  $result : math.div($px, $from) * 100%;
+  @return $result;
+};
+@function toRem($px, $current: 16) {
+  $result : math.div($px, $current) + rem;
+  @return $result;
+};
+@function em($px, $current: 16) {
+  $result : math.div($px, $current) + em;
+  @return $result;
+};
+//-----
+@function vh($px) {
+  @return (($px / 1080) * 100) * 1vh;
+}
+@function vhm($px) {
+  @return (($px / 960) * 100) * 1vh;
+}
+@function vw($px) {
+  @return (($px / 1920) * 100) * 1vw;
+}
+@function vwm($px) {
+  @return (($px / 640) * 100) * 1vw;
+}

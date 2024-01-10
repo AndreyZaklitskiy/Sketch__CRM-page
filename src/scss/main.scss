@@ -1,0 +1,51 @@
+//bibles
+
+
+// modules & sections
+@import "modules/functions";
+@import "modules/variables";
+@import "modules/mixins";
+@import "modules/fonts";
+//icons
+@import "modules/normalize";
+@import "modules/reset";
+// Подключение стилей отдельных компонентов
+@import "common";
+
+* {
+  box-sizing: border-box;
+}
+html {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  &.locked {
+    overflow: hidden; /* Заблокировать прокрутку всего body */
+  }
+}
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 100%;
+  line-height: 1.2;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+
+/*=====[CONTAINER]=====*/
+.container {
+  display: flex;
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  min-height: 100vh;
+  @media screen and (max-width: $breakpoint992) {
+    flex-direction: column;
+  }
+}
+// Подключение стилей отдельных блоков
+@import "sections/navigation";
+@import "sections/page-customers";

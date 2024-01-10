@@ -1,0 +1,43 @@
+@use 'sass:math';
+//Container & Breakpoints
+$minWidth : 320;
+$maxWidthContainer : 1440;//ширина ограничивающего контейнера
+$containerPadding : 30;//cуммарный отступ у контейнера, (30 = по 15 слева и справа, 0 - нет отступа
+$containerSidePadding : math.div($containerPadding, 2);//отступ у контейнера
+$containerWidth : $maxWidthContainer + $containerPadding; //Ширина спрацьовування першого брейкпойнту.
+
+$pc : em($containerWidth); //ПК, ноутбуки, некоторые телефоны в горизонтальном положении
+$breakpoint1450 : em(1449.98);
+$breakpoint992 : em(991.98); //Планшеты, некоторые телефоны в горизонтальном положении
+$breakpoint768 : em(767.98); //Телефоны L
+$breakpoint480 : em(479.98); //Телефоны S
+
+$responsiveType : 1; //1 - Отзывчивость, 2 - по бреикпоинтами
+
+
+
+//fonts
+$font : 'Poppins', sans-serif;
+
+//colors
+$colorWhite : #fff;
+$colorBlack : #000;
+$colorBackground : #FAFBFF;;
+$colorMenuText : #9197B3;
+$colorUserStatus : #757575;
+$colorTextInner : #292D32;
+$colorTextGreen : #16C098;
+$colorTextGray : #B5B7C0;
+$colorHover : #5932EA;
+$colorStatusTextActive : #008767;
+$colorStatusBackGroundActive : rgba(22, 192, 152, 0.38);
+$colorStatusBorderActive : #00B087;
+$colorStatusTextInactive : #008767;
+$colorStatusBackGroundInactive : rgba(22, 192, 152, 0.38);
+$colorStatusBorderInactive : #00B087;
+$colorTextPagination : #404B52;
+
+  //burger menu
+  $burgerBreakpoint : $breakpoint992;
+  $burgerColor : #131418;
+  $burgerActiveColor : #fefefe;

@@ -1,0 +1,77 @@
+@use 'sass:math';
+/*=====[ include fonts ]=====*/
+@mixin font($font_name, $file_name, $weight, $style) {
+@font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+    }
+}
+
+//Стили будут применяться ко всем классам, которые содержат *__container
+//На пример header__container
+@if ($responsiveType==1) {
+  //Отзывчивая вёрстка
+  [class*='__container'] {
+    @if($maxWidthContainer>0) {
+      max-width: toRem($containerWidth);
+      margin: 0 auto;
+    } @else {
+      @include adaptive-value('padding-left', math.div($containerPadding,2), 15);
+      @include adaptive-value('padding-right', math.div($containerPadding,2), 15);
+    }
+  }
+} @else {
+  //бреикпоинтами
+  [class*='__container'] {
+    margin: 0 auto;
+    @if ($maxWidthContainer>0) {
+      max-width: toRem($containerWidth);
+    } @else {
+      @if (containerPadding>0) {
+        padding: 0 toRem(math.div($containerPadding, 2));
+      }
+    }
+    @media screen and (max-width: $pc) {
+      max-width: toRem(1170);
+    }
+    @media screen and (max-width: $breakpoint992) {
+      max-width: toRem(970);
+    }
+    @media screen and (max-width: $breakpoint768) {
+      max-width: toRem(750);
+    }
+    @media screen and (max-width: $breakpoint480) {
+      max-width: none;
+      @if ($containerPadding>0 and $maxWidthContainer>0) {
+        padding: 0 toRem(math.div($containerPadding, 2));
+      }
+    }
+  }
+}
+/*=====[ adaptive value ]=====*/
+@mixin adaptive-value($property, $startSize, $minSize, $type, $maxW: $maxWidthContainer, $minW: $minWidth) {
+  $addSize : $startSize - $minSize;
+  @if $type==1 {
+    //только если меньше контейнера
+    #{$property}: $startSize + px;
+    @media (max-width : #{$maxWidthContainer + px}) {
+      #{$property} : calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxW - $minW}))
+    }
+  }
+  @else if $type==2 {
+    //только если больше контейнера
+    $maxW: $containerWidth;
+    #{$property}: $startSize + px;
+    @media (min-width : #{$maxWidthContainer + px}) {
+      #{$property} : calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxW  - $minW}))
+    }
+  }
+  @else {
+    //всегда
+    $maxW: $containerWidth;
+    #{$property} : calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxW - $minW}))
+  }
+}
