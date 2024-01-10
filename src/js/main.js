@@ -1,6 +1,8 @@
 window.addEventListener('load', function() {
     menuToggle();
+    updateTable(serverResponse);
 })
+/*==========[ Выпадающее Меню Бургер ]==========*/
 function menuToggle() {
     const meinField = document.querySelector('.main-field');
     const menu = document.querySelector('.navigation__main-menu');
@@ -55,7 +57,42 @@ function overlayFadeOutAnimation(element, fadeIn, fadeOut) {
     }
 }
 
+/*          //Пример Запроса Данных
+  fetch('http://example.com/api/customers')
+    .then(response => response.json())
+    .then(data => {
+        updateTable(data);
+    })
+    .catch(error => console.error('Error getting data:', error));
+*/
 
+/*=====[ Распарсим Ответ Сервера В Таблицу ]=====*/
+function updateTable(data) {
+    const tbody  = document.querySelector('.customers-list__data-wrap');
+    for (const dataObject of data) {
+        const dataRow = document.createElement("tr");
+        dataRow.className = 'customers-list__row customers-list__row_data';
+        for (const key of Object.keys(dataObject)) {
+            const td = document.createElement('td');
+            const span = document.createElement('span');
+            td.className = 'customers-list__col';
+            span.className = 'customers-list__text';
+            span.textContent = dataObject[key];
+            if (key === 'Status') {
+                const statusSpan = document.createElement('span');
+                statusSpan.className = `customers-list__text customers-list__status customers-list__status_${dataObject[key].toLowerCase()}`;
+                statusSpan.textContent = dataObject[key];
+                td.appendChild(statusSpan);
+            }else {
+                td.appendChild(span);
+            }
+            dataRow.appendChild(td);
+        }
+        tbody.appendChild(dataRow);
+      }
+}
+
+/*=====[ Пример Ответа сервера ]=====*/
 const serverResponse = [
     {
       "CustomerName": "Jane Cooper",
@@ -122,25 +159,3 @@ const serverResponse = [
       "Status": "Inactive"
     }
   ]
-  const wrap = document.querySelector('.customers-list__data-wrap');
-  for (const dataObject of serverResponse) {
-    const dataRow = document.createElement("tr");
-    dataRow.className = 'customers-list__row customers-list__row_data';
-    for (const key of Object.keys(dataObject)) {
-        const td = document.createElement('td');
-        const span = document.createElement('span');
-        td.className = 'customers-list__col';
-        span.className = 'customers-list__text';
-        span.textContent = dataObject[key];
-        if (key === 'Status') {
-            const statusSpan = document.createElement('span');
-            statusSpan.className = `customers-list__text customers-list__status customers-list__status_${dataObject[key].toLowerCase()}`;
-            statusSpan.textContent = dataObject[key];
-            td.appendChild(statusSpan);
-        }else {
-            td.appendChild(span);
-        }
-        dataRow.appendChild(td);
-    }
-    wrap.appendChild(dataRow);
-  }
