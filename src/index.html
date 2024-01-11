@@ -15,7 +15,7 @@
   <div class="container">
       <aside class="navigation">
         <!--=====[LOGO]=====-->
-        <div class="logo navigation__logo">
+        <!-- <div class="logo navigation__logo">
           <a href="#" class="logo__link">
             <svg class="logo__img" width="37" height="37">
               <use xlink:href="#logo"></use>
@@ -23,22 +23,23 @@
             <span class="logo__text">Dashboard</span>
             <sub class="logo__version">v.01</sub>
           </a>
-        </div>
+        </div> -->
         <!--=====[Обёртка Меню]=====-->
         <nav class="main-menu navigation__main-menu">
-          <!--=====[LOGO для маленьких расширений]=====-->
-          <div class="main-menu__logo logo">
-            <a href="#" class="logo__link">
-              <svg class="logo__img" width="37" height="37">
-                <use xlink:href="#logo"></use>
-              </svg>
-              <span class="logo__text">Dashboard</span>
-              <sub class="logo__version">v.01</sub>
-            </a>
-          </div>
-          <!-- <button class="hamburger main-menu__hamburger active"><span class="hamburger-inner"></span></button> -->
           <!--=====[ Меню ]=====-->
           <ul class="main-menu__list menu-list">
+            <!--=====[LOGO]=====-->
+            <li class="menu-list__item_logo">
+              <div class="main-menu__logo logo">
+                <a href="#" class="logo__link">
+                  <svg class="logo__img" width="37" height="37">
+                    <use xlink:href="#logo"></use>
+                  </svg>
+                  <span class="logo__text">Dashboard</span>
+                  <sub class="logo__version">v.01</sub>
+                </a>
+              </div>
+            </li>
             <li class="menu-list__item">
               <svg class="menu-list__icon-symbol menu-list__icon-symbol_stroke" width="24" height="24">
                 <use xlink:href="#key"></use>
@@ -91,6 +92,7 @@
               </svg>
             </li>
           </ul>
+
         </nav>
         <!--=====[ Бургер ]=====-->
         <button class="hamburger navigation__hamburger"><span class="hamburger-inner"></span></button>

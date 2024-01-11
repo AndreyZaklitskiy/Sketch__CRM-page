@@ -34,14 +34,6 @@ function menuToggle() {
             html.classList.toggle('locked')
             overlayFadeOutAnimation(meinField, 'main-field_menu-open', 'main-field_menu-out')
         }
-        /*==========[ Обработка клика по второму гамбургеру ]==========*/
-        else if (smallHamburger.contains(e.target)) {
-            console.log('Клик по второму гамбургеру')
-            dropdownMenu.classList.remove('open')
-            html.classList.remove('locked')
-            overlayFadeOutAnimation(meinField, 'main-field_menu-open', 'main-field_menu-out')
-            mainHamburger.classList.remove('active')
-        }
     })
 }
 /*==========[ Анимация затемнения ]==========*/
