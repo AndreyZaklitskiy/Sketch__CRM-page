@@ -158,7 +158,7 @@
   @media screen and (max-width: $breakpoint992) {
     position: fixed;
     min-height: 100vh;
-    width: 240px;
+    width: 255px;
     padding-left: 15px;
     padding-right: 15px;
     top: 0;
@@ -167,6 +167,7 @@
   }
   @media screen and (max-width: $breakpoint480) {
     z-index: 5;
+    width: 230px;
   }
 }
 /*=====[ Стили Меню ]=====*/
