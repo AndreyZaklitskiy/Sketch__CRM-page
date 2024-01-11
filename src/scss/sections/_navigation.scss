@@ -1,110 +1,110 @@
-
-/*==========[Стили Блока Навигации]==========*/
+/*==========[Стили Навигации]==========*/
 .navigation {
-    flex: 0 1 300px;
-    position: relative;
-    padding: 36px 24px 76px 28px;
-    display: flex;
-    flex-direction: column;
-    @media screen and (max-width: 1439.98px) {
-        padding: 35px 15px 50px;
-    }
-    @media screen and (max-width: $breakpoint992) {
-        flex: 0 1 auto;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 22px 15px 20px;
-    }
+  flex: 0 1 300px;
+  position: relative;
+  padding: 36px 24px 76px 28px;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 1439.98px) {
+    padding: 35px 15px 50px;
+  }
+  @media screen and (max-width: $breakpoint992) {
+    flex: 0 1 auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 15px 20px;
+  }
 }
 /*=====[Стили Логотипа]=====*/
 .logo {
-    font-family: $font;
-    font-weight: 600;
-    font-size: toRem(26);
-    line-height: normal;
-    letter-spacing: 0.50px;
-    color: $colorBlack;
-    display: flex;
-    z-index: 2;
+  font-family: $font;
+  font-weight: 600;
+  font-size: toRem(26);
+  line-height: normal;
+  letter-spacing: 0.5px;
+  color: $colorBlack;
+  display: flex;
+  z-index: 2;
 }
 .logo__link {
-    color: $colorBlack;
-    display: flex;
-    align-items: center;
+  color: $colorBlack;
+  display: flex;
+  align-items: center;
 }
 .logo__img {
-    margin-right: 8px;
-    // width: 37px;
-    // height: 37px;
+  margin-right: 8px;
+  // width: 37px;
+  // height: 37px;
 }
 .logo__version {
-    margin-left: 4px;
-    color: #838383;
-    font-size: toRem(10);
-    font-weight: 500;
+  margin-left: 4px;
+  color: #838383;
+  font-size: toRem(10);
+  font-weight: 500;
 }
 .navigation__logo {
-    margin-bottom: 53px;
-    @media screen and (max-width: $breakpoint992) {
-        margin-bottom: 0;
-    }
-    @media screen and (max-width: $breakpoint480) {
-        display: none;
-    }
-}
-            //Ситили Логотипа в main-menu
-.main-menu__logo {
+  margin-bottom: 53px;
+  @media screen and (max-width: $breakpoint992) {
+    margin-bottom: 0;
+  }
+  @media screen and (max-width: $breakpoint480) {
     display: none;
-    font-size: toRem(16);
-    padding: 23px 0 30px;
-    @media screen and (max-width: $breakpoint480) {
-        display: block;
-    }
+  }
+}
+//Ситили Логотипа в main-menu
+.main-menu__logo {
+  display: none;
+  font-size: toRem(16);
+  padding: 23px 0 30px;
+  @media screen and (max-width: $breakpoint480) {
+    display: block;
+  }
 }
 
 /*=====[Стили Гамбургер]=====*/
 .hamburger {
-    z-index: 2;
-    display: none;
-    font-size: 26px;
-    height: 1.152em;
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    .hamburger-inner {
-      position: relative;
+  z-index: 2;
+  display: none;
+  font-size: 26px;
+  height: 1.152em;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  .hamburger-inner {
+    position: relative;
+    display: block;
+    width: 1.248em;
+    height: 0.128em;
+    background-color: #000;
+    transition: all 0.3s;
+    border-radius: 5px;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
       display: block;
-      width: 1.248em;
-      height: 0.128em;
+      left: 0;
       background-color: #000;
-      transition: all 0.3s;
+      width: 100%;
+      height: 0.128em;
       border-radius: 5px;
-      &:before, &:after {
-        content: '';
-        position: absolute;
-        display: block;
-        left: 0;
-        background-color: #000;
-        width: 100%;
-        height: 0.128em;
-        border-radius: 5px;
-      }
-  
-      &:before {
-        transition: all 0.5s;
-        top: -0.384em;
-      }
-  
-      &:after {
-        transition: all 0.5s;
-        bottom: -0.384em;
-      }
     }
-    &:hover {
-      scale: 1.05;
+
+    &:before {
+      transition: all 0.5s;
+      top: -0.384em;
     }
-        //Стили активного гамбургера
+
+    &:after {
+      transition: all 0.5s;
+      bottom: -0.384em;
+    }
+  }
+  &:hover {
+    scale: 1.05;
+  }
+  //Стили активного гамбургера
   &.active {
     .hamburger-inner {
       background: transparent;
@@ -122,165 +122,164 @@
   @media screen and (max-width: $breakpoint480) {
     margin-left: 0;
     margin-right: auto;
-    }
+  }
 }
-            //Стили гамбургера в меню
+//Стили гамбургера в меню
 .main-menu__hamburger {
-    display: none;
-    position: absolute;
-    top: 26px;
-    right: 15px;
-    @media screen and (max-width: $breakpoint480) {
-        display: block;
-    }
+  display: none;
+  position: absolute;
+  top: 26px;
+  right: 15px;
+  @media screen and (max-width: $breakpoint480) {
+    display: block;
+  }
 }
-            //Позиционирование Гамбургера
+//Позиционирование Гамбургера
 .navigation__hamburger {
-    margin-left: auto;
-    margin-right: 15px;
-    @media screen and (max-width: $breakpoint992) {
-        display: block;
-    }
+  margin-left: auto;
+  margin-right: 15px;
+  @media screen and (max-width: $breakpoint992) {
+    display: block;
+  }
 }
 
- /*=====[Nav - Обёртка Меню ]=====*/
+/*=====[Nav - Обёртка Меню ]=====*/
 .navigation__main-menu {
-    margin-bottom: auto;
-    
+  margin-bottom: auto;
 }
 .main-menu {
-    position: relative;
-    max-width: 300px;
-    z-index: 1;
-    transition: all .6s;
-    &.open {
-        left: 0;
-    }
-    @media screen and (max-width: $breakpoint992) {
-        position: fixed;
-        min-height: 100vh;
-        width: 240px;
-        padding-left: 15px;
-        padding-right: 15px;
-        top: 0;
-        left: -100%;
-        background-color: $colorWhite;
-     }
-     @media screen and (max-width: $breakpoint480) {
-         z-index: 5;
-     }
-}
- /*=====[ Стили Меню ]=====*/
-.main-menu__list {
-    @media screen and (max-width: $breakpoint992) {
-        padding-top: 85px;
-     }
-     @media screen and (max-width: $breakpoint480) {
-        padding-top: 0;
-     }
-}
- /*=====[ Стили Пункта Меню ]=====*/
-.menu-list__item {
-    margin-bottom: 18px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    padding: 10px 8px 12px 11px;
+  position: relative;
+  max-width: 300px;
+  z-index: 1;
+  transition: all 0.6s;
+  &.open {
+    left: 0;
+  }
+  @media screen and (max-width: $breakpoint992) {
+    position: fixed;
+    min-height: 100vh;
+    width: 240px;
+    padding-left: 15px;
+    padding-right: 15px;
+    top: 0;
+    left: -100%;
     background-color: $colorWhite;
-    color: $colorMenuText;
-    cursor: pointer;
-    transition: all .3s;
-    @media (any-hover: hover) {
-        &:hover {
-            transition: all .3s;
-            background: rgba($colorHover, .5);
-            color: $colorWhite;
-            .menu-list__icon-symbol_stroke {
-                use {
-                    stroke: $colorWhite;
-                }
-            }
-            .menu-list__icon-symbol_fill {
-                use {
-                    fill: $colorWhite;
-                }
-            }
-        }
-    }
+  }
+  @media screen and (max-width: $breakpoint480) {
+    z-index: 5;
+  }
 }
-            //Стили Активного Пункта Меню
+/*=====[ Стили Меню ]=====*/
+.main-menu__list {
+  @media screen and (max-width: $breakpoint992) {
+    padding-top: 85px;
+  }
+  @media screen and (max-width: $breakpoint480) {
+    padding-top: 0;
+  }
+}
+/*=====[ Стили Пункта Меню ]=====*/
+.menu-list__item {
+  margin-bottom: 18px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 10px 8px 12px 11px;
+  background-color: $colorWhite;
+  color: $colorMenuText;
+  cursor: pointer;
+  transition: all 0.3s;
+  @media (any-hover: hover) {
+    &:hover {
+      transition: all 0.3s;
+      background: rgba($colorHover, 0.5);
+      color: $colorWhite;
+      .menu-list__icon-symbol_stroke {
+        use {
+          stroke: $colorWhite;
+        }
+      }
+      .menu-list__icon-symbol_fill {
+        use {
+          fill: $colorWhite;
+        }
+      }
+    }
+  }
+}
+//Стили Активного Пункта Меню
 .menu-list__item_active {
-    background-color: $colorHover;
-    color: $colorWhite;
-    .menu-list__icon-symbol_stroke {
-        use {
-            stroke: $colorWhite;
-        }
+  background-color: $colorHover;
+  color: $colorWhite;
+  .menu-list__icon-symbol_stroke {
+    use {
+      stroke: $colorWhite;
     }
-    .menu-list__icon-symbol_fill {
-        use {
-            fill: $colorWhite;
-        }
+  }
+  .menu-list__icon-symbol_fill {
+    use {
+      fill: $colorWhite;
     }
+  }
 }
-            //Стили SVG иконок Меню
+//Стили SVG иконок Меню
 .menu-list__icon-symbol {
-    margin-right: 14px;
+  margin-right: 14px;
 }
 .menu-list__icon-symbol_stroke {
-    use {
-        stroke: $colorMenuText;
-        fill: transparent;
-    }
+  use {
+    stroke: $colorMenuText;
+    fill: transparent;
+  }
 }
 .menu-list__icon-symbol_fill {
-    use {
-        fill: $colorMenuText;
-    }
+  use {
+    fill: $colorMenuText;
+  }
 }
-            //Стили Текста Меню
+//Стили Текста Меню
 .menu-list__text {
-    margin-right: auto;
-    font-family: $font;
-    font-size: toRem(14);
-    font-weight: 500;
-    text-transform: capitalize;
+  margin-right: auto;
+  font-family: $font;
+  font-size: toRem(14);
+  font-weight: 500;
+  text-transform: capitalize;
 }
-/*=====[Стили Блока Пользователь]=====*/
+/*=====[Стили Пользователя]=====*/
 .user-link {
-    font-family: $font;
-    font-size: 14px;
-    line-height: normal;
-    display: flex;
-    align-items: center;
+  font-family: $font;
+  font-size: 14px;
+  line-height: normal;
+  display: flex;
+  align-items: center;
 }
 .user-link__img-wrap {
-    display: inline-block;
-    height: 42px;
-    width: 42px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 12px;
+  display: inline-block;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
 }
 .user-link__text-wrap {
-    display: inline-block;
-    @media screen and (max-width: 574.98px) {
-        display: none;
-    }
+  display: inline-block;
+  @media screen and (max-width: 574.98px) {
+    display: none;
+  }
 }
 .user-link__name {
-    font-family: $font;
-    font-size: toRem(14);
-    font-weight: 500;
-    line-height: normal;
-    color: $colorBlack;
+  font-family: $font;
+  font-size: toRem(14);
+  font-weight: 500;
+  line-height: normal;
+  color: $colorBlack;
 }
 .user-link__status {
-    flex-grow: 1;
-    text-align: center;
-    font-family: $font;
-    font-size: toRem(12);
-    font-weight: 400;
-    line-height: normal;
-    color: $colorUserStatus;
+  flex-grow: 1;
+  text-align: center;
+  font-family: $font;
+  font-size: toRem(12);
+  font-weight: 400;
+  line-height: normal;
+  color: $colorUserStatus;
 }
